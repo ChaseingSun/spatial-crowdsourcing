@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "source",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "destination",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180108210814",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "task",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
