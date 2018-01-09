@@ -21,6 +21,7 @@ export class WorkerDetailComponent implements OnInit, OnDestroy {
         private workerService: WorkerService,
         private route: ActivatedRoute
     ) {
+
     }
 
     ngOnInit() {

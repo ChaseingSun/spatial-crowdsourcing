@@ -17,11 +17,14 @@ import {
     JhiSocialComponent,
     SocialService,
 } from './';
+import {ReactiveFormsModule} from "@angular/forms";
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedLibsModule,
         SpacialcrowdsourcingSharedCommonModule
+
     ],
     declarations: [
         JhiSocialComponent,

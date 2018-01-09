@@ -23,10 +23,14 @@ import {
     PageRibbonComponent,
     ErrorComponent
 } from './layouts';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AgmCoreModule} from "@agm/core";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         SpacialcrowdsourcingAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         SpacialcrowdsourcingSharedModule,
@@ -34,6 +38,11 @@ import {
         SpacialcrowdsourcingAdminModule,
         SpacialcrowdsourcingAccountModule,
         SpacialcrowdsourcingEntityModule,
+        ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0',
+            libraries:["places"]
+        })
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

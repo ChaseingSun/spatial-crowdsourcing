@@ -14,6 +14,9 @@ import {
     workerRoute,
     workerPopupRoute,
 } from './';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AgmCoreModule} from "@agm/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const ENTITY_STATES = [
     ...workerRoute,
@@ -23,6 +26,15 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        /*AgmCoreModule.forRoot({
+            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
+        }),*/
+        AgmCoreModule.forRoot({
+            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
+        }),
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [
