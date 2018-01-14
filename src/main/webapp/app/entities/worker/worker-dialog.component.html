@@ -34,11 +34,7 @@
             <input type="text" class="form-control" name="name" id="field_name"
                 [(ngModel)]="worker.name" />
         </div>
-        <div class="form-group">
-            <label class="form-control-label" for="field_location">Location</label>
-            <input type="text" class="form-control" name="location" id="field_location"
-                [(ngModel)]="worker.location" (input)="searchLocation()" />
-        </div>
+
 
         <div class="form-group">
             <label class="form-control-label" for="field_capacity">Capacity</label>
@@ -47,8 +43,14 @@
         </div>
 
         <div class="form-group">
-            <input  placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control pac-container"  #search  >
+            <label class="form-control-label" for="field_location">Location</label>
+            <!--<input type="text" class="form-control" name="location" id="field_location"
+                [(ngModel)]="worker.location" (input)="searchLocation()" />-->
+            <div class="form-group">
+                <input  [(ngModel)]="worker.location" name="location" id="field_location"  placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control pac-container"  #search  >
+            </div>
         </div>
+
         <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
