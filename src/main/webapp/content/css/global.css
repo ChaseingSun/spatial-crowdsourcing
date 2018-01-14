@@ -63,6 +63,10 @@ Generic styles
     padding: 10px;
 }
 
+.pac-container {
+    z-index: 10000 !important;
+}
+
 .w-40 {
     width: 40% !important;
 }

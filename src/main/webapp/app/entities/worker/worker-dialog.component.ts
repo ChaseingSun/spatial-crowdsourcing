@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy, NgZone, ViewChild, ElementRef, ViewChildren} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Response } from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +12,7 @@ import { WorkerService } from './worker.service';
 
 import {MapsAPILoader} from "@agm/core";
 import {FormControl} from "@angular/forms";
+import {GOOGLE_API_URL} from "../../app.constants";
 
 @Component({
     selector: 'jhi-worker-dialog',
@@ -30,6 +31,7 @@ export class WorkerDialogComponent implements OnInit {
     public longitude: number;
     public searchControl: FormControl;
     public zoom: number;
+    public places:any;
 
     @ViewChild("search")
     public searchElementRef: ElementRef;
@@ -39,7 +41,8 @@ export class WorkerDialogComponent implements OnInit {
         private workerService: WorkerService,
         private eventManager: JhiEventManager,
         private mapsAPILoader: MapsAPILoader,
-        private ngZone: NgZone
+        private ngZone: NgZone,
+        private http:Http
     ) {
 
     }
@@ -63,11 +66,14 @@ export class WorkerDialogComponent implements OnInit {
     }
 
     searchLocation(){
-        console.log("********");
-        console.log(this.searchControl);
-        console.log("############");
-        console.log(this.searchElementRef.nativeElement);
+        console.log("In the search location");
+     this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&key=AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g")
+         .map((res:any)=>{
+             console.log("In the search locaiton");
+             console.log(res);
+         }) ;
     }
+
 
 
     loadMap() {

@@ -10,4 +10,5 @@ let _SERVER_API_URL = ''; // This value will be overwritten by Webpack
 export const VERSION = _VERSION;
 export const DEBUG_INFO_ENABLED = _DEBUG_INFO_ENABLED;
 export const SERVER_API_URL = _SERVER_API_URL;
-export const GOOGLE_MAP_KEY="AIzaSyBcq9OmZ-qz1YAiDCWuXVNmn-0L_TCUHBY";
+export const GOOGLE_MAP_KEY="AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g";
+export const GOOGLE_API_URL="https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&key=AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g";

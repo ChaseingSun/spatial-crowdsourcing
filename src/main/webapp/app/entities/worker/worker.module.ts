@@ -33,7 +33,7 @@ const ENTITY_STATES = [
             apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
         }),*/
         AgmCoreModule.forRoot({
-            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
+            apiKey:'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
         }),
         RouterModule.forChild(ENTITY_STATES)
     ],

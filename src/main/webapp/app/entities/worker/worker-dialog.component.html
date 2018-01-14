@@ -9,6 +9,10 @@
         width: 100%;
     }
 
+    .pac-container {
+        z-index: 1000 ;
+    }
+
 </style>
 
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
@@ -33,17 +37,17 @@
         <div class="form-group">
             <label class="form-control-label" for="field_location">Location</label>
             <input type="text" class="form-control" name="location" id="field_location"
-                [(ngModel)]="worker.location" />
+                [(ngModel)]="worker.location" (input)="searchLocation()" />
         </div>
 
         <div class="form-group">
             <label class="form-control-label" for="field_capacity">Capacity</label>
             <input type="number" class="form-control" name="capacity" id="field_capacity"
-                [(ngModel)]="worker.capacity" />
+                [(ngModel)]="worker.capacity"  />
         </div>
 
         <div class="form-group">
-            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"  #search  >
+            <input  placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control pac-container"  #search  >
         </div>
         <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
