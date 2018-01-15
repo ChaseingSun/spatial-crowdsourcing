@@ -10,7 +10,7 @@
     }
 
     .pac-container {
-        z-index: 1000 ;
+        z-index: 2000 ;
     }
 
 </style>
@@ -59,7 +59,9 @@
             <!--<input type="text" class="form-control" name="location" id="field_location"
                 [(ngModel)]="worker.location" (input)="searchLocation()" />-->
             <div class="form-group">
-                <input  [(ngModel)]="worker.location" name="location" id="field_location"  placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control pac-container"  #search  >
+                <input  [(ngModel)]="worker.location" name="location" id="field_location"
+                        placeholder="search for location" autocorrect="on" autocapitalize="off"
+                        spellcheck="off" type="text" class="form-control pac-container"  #search  >
             </div>
         </div>
 

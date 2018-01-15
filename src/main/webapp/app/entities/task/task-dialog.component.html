@@ -1,3 +1,18 @@
+<style>
+
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .example-full-width {
+        width: 100%;
+    }
+    .pac-container {
+        z-index: 2000 ;
+    }
+</style>
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
@@ -19,18 +34,44 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_source">Source</label>
-            <input type="text" class="form-control" name="source" id="field_source"
-                [(ngModel)]="task.source" />
+            <!--<input type="text" class="form-control" name="source" id="field_source"
+                [(ngModel)]="task.source" />-->
+            <input  [(ngModel)]="task.source" name="source" id="field_source"
+                    placeholder="search for source" autocorrect="on" autocapitalize="off"
+                    spellcheck="off" type="text" class="form-control pac-container"  #sourceSearch  />
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_destination">Destination</label>
-            <input type="text" class="form-control" name="destination" id="field_destination"
-                [(ngModel)]="task.destination" />
-        </div>
+            <input type="text" name="destination" id="field_destination"
+                [(ngModel)]="task.destination"   placeholder="search for destination" autocorrect="on" autocapitalize="off"
+                   spellcheck="off" class="form-control pac-container"  #search />
 
-        <agm-map [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fromLattitude">From Lattitude</label>
+            <input type="text" class="form-control" name="fromLattitude" id="field_fromLattitude"
+                [(ngModel)]="task.fromLattitude" [disabled]="true" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fromLongitude">From Longitude</label>
+            <input type="text" class="form-control" name="fromLongitude" id="field_fromLongitude"
+                [(ngModel)]="task.fromLongitude" [disabled]="true" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toLattitude">To Lattitude</label>
+            <input type="text" class="form-control" name="toLattitude" id="field_toLattitude"
+                [(ngModel)]="task.toLattitude" [disabled]="true" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toLongitude">To Longitude</label>
+            <input type="text" class="form-control" name="toLongitude" id="field_toLongitude"
+                [(ngModel)]="task.toLongitude" [disabled]="true" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_distance">Distance</label>
+            <input type="number" class="form-control" name="distance" id="field_distance"
+                [(ngModel)]="task.distance" [disabled]="true" />
+        </div>
 
     </div>
     <div class="modal-footer">
@@ -42,7 +83,3 @@
         </button>
     </div>
 </form>
-
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>

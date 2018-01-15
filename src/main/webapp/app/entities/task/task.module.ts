@@ -14,6 +14,9 @@ import {
     taskRoute,
     taskPopupRoute,
 } from './';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AgmCoreModule} from "@agm/core";
 
 const ENTITY_STATES = [
     ...taskRoute,
@@ -23,6 +26,12 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey:'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
+        }),
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [

@@ -96,6 +96,9 @@ export class WorkerDialogComponent implements OnInit {
                     //set latitude, longitude and zoom
                     this.latitude = place.geometry.location.lat();
                     this.longitude = place.geometry.location.lng();
+                    this.worker.lattitude=this.latitude.toString();
+                    this.worker.longitude=this.longitude.toString();
+                    this.worker.location=place.name;
                     this.zoom = 12;
                 });
             });

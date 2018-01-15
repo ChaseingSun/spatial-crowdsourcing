@@ -4,6 +4,7 @@ package org.spatial.crowdsource.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -27,6 +28,21 @@ public class Task implements Serializable {
 
     @Column(name = "destination")
     private String destination;
+
+    @Column(name = "from_lattitude")
+    private String fromLattitude;
+
+    @Column(name = "from_longitude")
+    private String fromLongitude;
+
+    @Column(name = "to_lattitude")
+    private String toLattitude;
+
+    @Column(name = "to_longitude")
+    private String toLongitude;
+
+    @Column(name = "distance", precision=10, scale=2)
+    private BigDecimal distance;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -75,6 +91,71 @@ public class Task implements Serializable {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+
+    public String getFromLattitude() {
+        return fromLattitude;
+    }
+
+    public Task fromLattitude(String fromLattitude) {
+        this.fromLattitude = fromLattitude;
+        return this;
+    }
+
+    public void setFromLattitude(String fromLattitude) {
+        this.fromLattitude = fromLattitude;
+    }
+
+    public String getFromLongitude() {
+        return fromLongitude;
+    }
+
+    public Task fromLongitude(String fromLongitude) {
+        this.fromLongitude = fromLongitude;
+        return this;
+    }
+
+    public void setFromLongitude(String fromLongitude) {
+        this.fromLongitude = fromLongitude;
+    }
+
+    public String getToLattitude() {
+        return toLattitude;
+    }
+
+    public Task toLattitude(String toLattitude) {
+        this.toLattitude = toLattitude;
+        return this;
+    }
+
+    public void setToLattitude(String toLattitude) {
+        this.toLattitude = toLattitude;
+    }
+
+    public String getToLongitude() {
+        return toLongitude;
+    }
+
+    public Task toLongitude(String toLongitude) {
+        this.toLongitude = toLongitude;
+        return this;
+    }
+
+    public void setToLongitude(String toLongitude) {
+        this.toLongitude = toLongitude;
+    }
+
+    public BigDecimal getDistance() {
+        return distance;
+    }
+
+    public Task distance(BigDecimal distance) {
+        this.distance = distance;
+        return this;
+    }
+
+    public void setDistance(BigDecimal distance) {
+        this.distance = distance;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -104,6 +185,11 @@ public class Task implements Serializable {
             ", name='" + getName() + "'" +
             ", source='" + getSource() + "'" +
             ", destination='" + getDestination() + "'" +
+            ", fromLattitude='" + getFromLattitude() + "'" +
+            ", fromLongitude='" + getFromLongitude() + "'" +
+            ", toLattitude='" + getToLattitude() + "'" +
+            ", toLongitude='" + getToLongitude() + "'" +
+            ", distance=" + getDistance() +
             "}";
     }
 }

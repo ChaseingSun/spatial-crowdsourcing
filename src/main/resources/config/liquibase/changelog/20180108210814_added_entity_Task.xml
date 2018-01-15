@@ -34,6 +34,26 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="from_lattitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="from_longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="to_lattitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="to_longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="distance" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

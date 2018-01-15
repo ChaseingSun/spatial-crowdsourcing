@@ -6,6 +6,11 @@ export class Task implements BaseEntity {
         public name?: string,
         public source?: string,
         public destination?: string,
+        public fromLattitude?: string,
+        public fromLongitude?: string,
+        public toLattitude?: string,
+        public toLongitude?: string,
+        public distance?: number,
     ) {
     }
 }

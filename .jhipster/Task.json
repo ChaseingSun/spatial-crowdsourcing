@@ -13,6 +13,26 @@
         {
             "fieldName": "destination",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "fromLattitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fromLongitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toLattitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toLongitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "distance",
+            "fieldType": "BigDecimal"
         }
     ],
     "changelogDate": "20180108210814",

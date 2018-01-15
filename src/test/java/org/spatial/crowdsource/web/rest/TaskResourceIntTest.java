@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.spatial.crowdsource.web.rest.TestUtil.createFormattingConversionService;
@@ -47,6 +48,21 @@ public class TaskResourceIntTest {
 
     private static final String DEFAULT_DESTINATION = "AAAAAAAAAA";
     private static final String UPDATED_DESTINATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_FROM_LATTITUDE = "AAAAAAAAAA";
+    private static final String UPDATED_FROM_LATTITUDE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_FROM_LONGITUDE = "AAAAAAAAAA";
+    private static final String UPDATED_FROM_LONGITUDE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TO_LATTITUDE = "AAAAAAAAAA";
+    private static final String UPDATED_TO_LATTITUDE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TO_LONGITUDE = "AAAAAAAAAA";
+    private static final String UPDATED_TO_LONGITUDE = "BBBBBBBBBB";
+
+    private static final BigDecimal DEFAULT_DISTANCE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_DISTANCE = new BigDecimal(2);
 
     @Autowired
     private TaskRepository taskRepository;
@@ -91,7 +107,12 @@ public class TaskResourceIntTest {
         Task task = new Task()
             .name(DEFAULT_NAME)
             .source(DEFAULT_SOURCE)
-            .destination(DEFAULT_DESTINATION);
+            .destination(DEFAULT_DESTINATION)
+            .fromLattitude(DEFAULT_FROM_LATTITUDE)
+            .fromLongitude(DEFAULT_FROM_LONGITUDE)
+            .toLattitude(DEFAULT_TO_LATTITUDE)
+            .toLongitude(DEFAULT_TO_LONGITUDE)
+            .distance(DEFAULT_DISTANCE);
         return task;
     }
 
@@ -118,6 +139,11 @@ public class TaskResourceIntTest {
         assertThat(testTask.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testTask.getSource()).isEqualTo(DEFAULT_SOURCE);
         assertThat(testTask.getDestination()).isEqualTo(DEFAULT_DESTINATION);
+        assertThat(testTask.getFromLattitude()).isEqualTo(DEFAULT_FROM_LATTITUDE);
+        assertThat(testTask.getFromLongitude()).isEqualTo(DEFAULT_FROM_LONGITUDE);
+        assertThat(testTask.getToLattitude()).isEqualTo(DEFAULT_TO_LATTITUDE);
+        assertThat(testTask.getToLongitude()).isEqualTo(DEFAULT_TO_LONGITUDE);
+        assertThat(testTask.getDistance()).isEqualTo(DEFAULT_DISTANCE);
     }
 
     @Test
@@ -152,7 +178,12 @@ public class TaskResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(task.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].source").value(hasItem(DEFAULT_SOURCE.toString())))
-            .andExpect(jsonPath("$.[*].destination").value(hasItem(DEFAULT_DESTINATION.toString())));
+            .andExpect(jsonPath("$.[*].destination").value(hasItem(DEFAULT_DESTINATION.toString())))
+            .andExpect(jsonPath("$.[*].fromLattitude").value(hasItem(DEFAULT_FROM_LATTITUDE.toString())))
+            .andExpect(jsonPath("$.[*].fromLongitude").value(hasItem(DEFAULT_FROM_LONGITUDE.toString())))
+            .andExpect(jsonPath("$.[*].toLattitude").value(hasItem(DEFAULT_TO_LATTITUDE.toString())))
+            .andExpect(jsonPath("$.[*].toLongitude").value(hasItem(DEFAULT_TO_LONGITUDE.toString())))
+            .andExpect(jsonPath("$.[*].distance").value(hasItem(DEFAULT_DISTANCE.intValue())));
     }
 
     @Test
@@ -168,7 +199,12 @@ public class TaskResourceIntTest {
             .andExpect(jsonPath("$.id").value(task.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.source").value(DEFAULT_SOURCE.toString()))
-            .andExpect(jsonPath("$.destination").value(DEFAULT_DESTINATION.toString()));
+            .andExpect(jsonPath("$.destination").value(DEFAULT_DESTINATION.toString()))
+            .andExpect(jsonPath("$.fromLattitude").value(DEFAULT_FROM_LATTITUDE.toString()))
+            .andExpect(jsonPath("$.fromLongitude").value(DEFAULT_FROM_LONGITUDE.toString()))
+            .andExpect(jsonPath("$.toLattitude").value(DEFAULT_TO_LATTITUDE.toString()))
+            .andExpect(jsonPath("$.toLongitude").value(DEFAULT_TO_LONGITUDE.toString()))
+            .andExpect(jsonPath("$.distance").value(DEFAULT_DISTANCE.intValue()));
     }
 
     @Test
@@ -194,7 +230,12 @@ public class TaskResourceIntTest {
         updatedTask
             .name(UPDATED_NAME)
             .source(UPDATED_SOURCE)
-            .destination(UPDATED_DESTINATION);
+            .destination(UPDATED_DESTINATION)
+            .fromLattitude(UPDATED_FROM_LATTITUDE)
+            .fromLongitude(UPDATED_FROM_LONGITUDE)
+            .toLattitude(UPDATED_TO_LATTITUDE)
+            .toLongitude(UPDATED_TO_LONGITUDE)
+            .distance(UPDATED_DISTANCE);
 
         restTaskMockMvc.perform(put("/api/tasks")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -208,6 +249,11 @@ public class TaskResourceIntTest {
         assertThat(testTask.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testTask.getSource()).isEqualTo(UPDATED_SOURCE);
         assertThat(testTask.getDestination()).isEqualTo(UPDATED_DESTINATION);
+        assertThat(testTask.getFromLattitude()).isEqualTo(UPDATED_FROM_LATTITUDE);
+        assertThat(testTask.getFromLongitude()).isEqualTo(UPDATED_FROM_LONGITUDE);
+        assertThat(testTask.getToLattitude()).isEqualTo(UPDATED_TO_LATTITUDE);
+        assertThat(testTask.getToLongitude()).isEqualTo(UPDATED_TO_LONGITUDE);
+        assertThat(testTask.getDistance()).isEqualTo(UPDATED_DISTANCE);
     }
 
     @Test
