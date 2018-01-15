@@ -28,6 +28,12 @@ public class Worker implements Serializable {
     @Column(name = "capacity")
     private Integer capacity;
 
+    @Column(name="lattitude")
+    private String lattitude;
+
+    @Column(name="longitude")
+    private String longitude;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -75,6 +81,23 @@ public class Worker implements Serializable {
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
+
+    public String getLattitude() {
+        return lattitude;
+    }
+
+    public void setLattitude(String pLattitude) {
+        lattitude = pLattitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String pLongitude) {
+        longitude = pLongitude;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -103,7 +126,9 @@ public class Worker implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", location='" + getLocation() + "'" +
-            ", capacity=" + getCapacity() +
+            ", capacity=" + getCapacity() + "'"+
+            ", lattitude="+ getLattitude()+"'"+
+            ", longitude="+ getLongitude()+
             "}";
     }
 }

@@ -43,6 +43,18 @@
         </div>
 
         <div class="form-group">
+            <label class="form-control-label" for="field_lattitude">Lattitude</label>
+            <input type="number" class="form-control" name="lattitude" id="field_lattitude"
+                   [(ngModel)]="worker.lattitude" [disabled]="true" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_longitude">Longitude</label>
+            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                   [(ngModel)]="worker.longitude"  [disabled]="true" />
+        </div>
+
+        <div class="form-group">
             <label class="form-control-label" for="field_location">Location</label>
             <!--<input type="text" class="form-control" name="location" id="field_location"
                 [(ngModel)]="worker.location" (input)="searchLocation()" />-->

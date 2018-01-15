@@ -6,6 +6,8 @@ export class Worker implements BaseEntity {
         public name?: string,
         public location?: string,
         public capacity?: number,
+        public lattitude?:string,
+        public longitude?: string
     ) {
     }
 }
