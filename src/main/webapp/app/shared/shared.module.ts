@@ -1,29 +1,28 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {DatePipe} from '@angular/common';
 
 import {
-    SpacialcrowdsourcingSharedLibsModule,
-    SpacialcrowdsourcingSharedCommonModule,
-    CSRFService,
-    AuthServerProvider,
-    AccountService,
-    UserService,
-    StateStorageService,
-    LoginService,
-    LoginModalService,
-    JhiLoginModalComponent,
-    Principal,
-    HasAnyAuthorityDirective,
-    JhiSocialComponent,
-    SocialService,
+    AccountService, AuthServerProvider, CSRFService, HasAnyAuthorityDirective, JhiLoginModalComponent,
+    JhiSocialComponent, LoginModalService, LoginService, Principal, SocialService,
+    SpacialcrowdsourcingSharedCommonModule, SpacialcrowdsourcingSharedLibsModule, StateStorageService, UserService,
 } from './';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedLibsModule,
-        SpacialcrowdsourcingSharedCommonModule
+        SpacialcrowdsourcingSharedCommonModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        /*AgmCoreModule.forRoot({
+            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
+        }),*/
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
+        }),
 
     ],
     declarations: [

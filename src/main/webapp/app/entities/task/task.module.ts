@@ -1,22 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { SpacialcrowdsourcingSharedModule } from '../../shared';
+import {SpacialcrowdsourcingSharedModule} from '../../shared';
 import {
-    TaskService,
-    TaskPopupService,
-    TaskComponent,
-    TaskDetailComponent,
-    TaskDialogComponent,
-    TaskPopupComponent,
-    TaskDeletePopupComponent,
-    TaskDeleteDialogComponent,
-    taskRoute,
-    taskPopupRoute,
+    TaskComponent, TaskDeleteDialogComponent, TaskDeletePopupComponent, TaskDetailComponent, TaskDialogComponent,
+    TaskPopupComponent, taskPopupRoute, TaskPopupService, taskRoute, TaskService,
 } from './';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AgmCoreModule} from "@agm/core";
 
 const ENTITY_STATES = [
     ...taskRoute,
@@ -26,12 +15,6 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        AgmCoreModule.forRoot({
-            apiKey:'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
-        }),
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [

@@ -1,10 +1,10 @@
-import {Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone} from '@angular/core';
-import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import {Component, ElementRef, NgZone, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Subscription} from 'rxjs/Rx';
+import {JhiAlertService, JhiEventManager} from 'ng-jhipster';
 
-import { Worker } from './worker.model';
-import { WorkerService } from './worker.service';
-import { Principal, ResponseWrapper } from '../../shared';
+import {Worker} from './worker.model';
+import {WorkerService} from './worker.service';
+import {Principal, ResponseWrapper} from '../../shared';
 import {FormControl} from "@angular/forms";
 import {MapsAPILoader} from "@agm/core";
 
@@ -51,7 +51,7 @@ workers: Worker[];
         this.registerChangeInWorkers();
 
 
-        this.zoom = 4;
+        /*this.zoom = 4;
         this.latitude = 39.8282;
         this.longitude = -98.5795;
 
@@ -63,7 +63,7 @@ workers: Worker[];
         console.log("init this.serachElementRef");
         console.log(this.searchElementRef);
         //load Places Autocomplete
-        this.loadMap();
+        this.loadMap();*/
 
     }
 

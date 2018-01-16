@@ -1,22 +1,11 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { SpacialcrowdsourcingSharedModule } from '../../shared';
+import {SpacialcrowdsourcingSharedModule} from '../../shared';
 import {
-    WorkerService,
-    WorkerPopupService,
-    WorkerComponent,
-    WorkerDetailComponent,
-    WorkerDialogComponent,
-    WorkerPopupComponent,
-    WorkerDeletePopupComponent,
-    WorkerDeleteDialogComponent,
-    workerRoute,
-    workerPopupRoute,
+    WorkerComponent, WorkerDeleteDialogComponent, WorkerDeletePopupComponent, WorkerDetailComponent,
+    WorkerDialogComponent, WorkerPopupComponent, workerPopupRoute, WorkerPopupService, workerRoute, WorkerService,
 } from './';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AgmCoreModule} from "@agm/core";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const ENTITY_STATES = [
     ...workerRoute,
@@ -26,15 +15,6 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         SpacialcrowdsourcingSharedModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        /*AgmCoreModule.forRoot({
-            apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
-        }),*/
-        AgmCoreModule.forRoot({
-            apiKey:'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
-        }),
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [

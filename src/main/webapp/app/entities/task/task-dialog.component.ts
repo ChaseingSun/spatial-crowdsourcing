@@ -1,14 +1,14 @@
-import {Component, OnInit, OnDestroy, NgZone, ViewChild, ElementRef} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, ElementRef, NgZone, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Http, Response} from '@angular/http';
 
-import { Observable } from 'rxjs/Rx';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import {Observable} from 'rxjs/Rx';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { Task } from './task.model';
-import { TaskPopupService } from './task-popup.service';
-import { TaskService } from './task.service';
+import {Task} from './task.model';
+import {TaskPopupService} from './task-popup.service';
+import {TaskService} from './task.service';
 import {FormControl} from "@angular/forms";
 import {MapsAPILoader} from "@agm/core";
 
@@ -48,6 +48,14 @@ export class TaskDialogComponent implements OnInit {
         this.sourceSearchControl = new FormControl();
         this.destinationSearchControl = new FormControl();
 
+        this.task.fromLattitude = "39.8282";
+        this.task.fromLongitude = "-98.5795";
+
+        this.task.toLattitude = "39.8282";
+        this.task.toLongitude = "-98.5795";
+
+        this.loadSourceMap();
+
     }
 
     loadSourceMap() {
@@ -76,6 +84,35 @@ export class TaskDialogComponent implements OnInit {
         });
 
     }
+
+
+    loadDestinationMap() {
+        this.mapsAPILoader.load().then(() => {
+            let autocomplete = new google.maps.places.Autocomplete(this.sourceSearchElementRef.nativeElement, {
+                types: ["address"]
+            });
+            autocomplete.addListener("place_changed", () => {
+                this.ngZone.run(() => {
+                    //get the place result
+                    let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+                    console.log("Place");
+                    console.log(place);
+
+                    //verify result
+                    if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                    }
+
+                    //set latitude, longitude and zoom
+                    this.task.fromLattitude= place.geometry.location.lat().toString();
+                    this.task.fromLongitude=place.geometry.location.lng().toString();
+                    this.task.source=place.name;
+                });
+            });
+        });
+
+    }
+
 
     clear() {
         this.activeModal.dismiss('cancel');
