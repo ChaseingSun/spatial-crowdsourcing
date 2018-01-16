@@ -32,7 +32,7 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:spacialcrowdsourcing;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:spacialcrowdsourcing;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
         username: spacialcrowdsourcing
         password:
     h2:
@@ -47,6 +47,8 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+        hibernate:
+            ddl-auto: update
     mail:
         host: localhost
         port: 25

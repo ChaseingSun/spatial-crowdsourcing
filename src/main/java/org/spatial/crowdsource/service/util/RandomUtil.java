@@ -57,4 +57,8 @@ public final class RandomUtil {
     public static String generateTokenData() {
         return RandomStringUtils.randomAlphanumeric(DEF_COUNT);
     }
+
+    public static String getGoogleApiKey(){
+        return "AIzaSyDcUWXIw0sle0zAVeot4hqN8mMmNSe2IUU";
+    }
 }
