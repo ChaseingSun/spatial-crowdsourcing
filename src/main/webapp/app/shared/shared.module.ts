@@ -21,6 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
             apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0'
         }),*/
         AgmCoreModule.forRoot({
+            libraries:["geometry"],
             apiKey: 'AIzaSyDOF23XN2tAVxQxwJgm-80A78bZ88wlx4g'
         }),
 

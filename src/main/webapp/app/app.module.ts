@@ -41,7 +41,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
             apiKey:'AIzaSyAkIG_7Gsl3yqKhoyXuG0yy8BhSxmxCtJ0',
-            libraries:["places"]
+            libraries:["places","geometry"]
         })
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],

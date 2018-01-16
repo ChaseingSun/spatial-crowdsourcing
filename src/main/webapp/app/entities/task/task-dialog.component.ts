@@ -55,6 +55,7 @@ export class TaskDialogComponent implements OnInit {
         this.task.toLongitude = "-98.5795";
 
         this.loadSourceMap();
+        this.loadDestinationMap();
 
     }
 
@@ -79,6 +80,7 @@ export class TaskDialogComponent implements OnInit {
                     this.task.fromLattitude= place.geometry.location.lat().toString();
                     this.task.fromLongitude=place.geometry.location.lng().toString();
                     this.task.source=place.name;
+                    this.calculateDistance();
                 });
             });
         });
@@ -86,9 +88,17 @@ export class TaskDialogComponent implements OnInit {
     }
 
 
+    private calculateDistance() {
+        if (this.task.fromLongitude != null && this.task.toLongitude != null) {
+            const lang = new google.maps.LatLng(+this.task.fromLattitude, +this.task.fromLongitude);
+            const long = new google.maps.LatLng(+this.task.toLattitude, +this.task.toLongitude);
+            this.task.distance = google.maps.geometry.spherical.computeDistanceBetween(lang, long);
+        }
+    }
+
     loadDestinationMap() {
         this.mapsAPILoader.load().then(() => {
-            let autocomplete = new google.maps.places.Autocomplete(this.sourceSearchElementRef.nativeElement, {
+            let autocomplete = new google.maps.places.Autocomplete(this.destinationSearchRef.nativeElement, {
                 types: ["address"]
             });
             autocomplete.addListener("place_changed", () => {
@@ -104,9 +114,12 @@ export class TaskDialogComponent implements OnInit {
                     }
 
                     //set latitude, longitude and zoom
-                    this.task.fromLattitude= place.geometry.location.lat().toString();
-                    this.task.fromLongitude=place.geometry.location.lng().toString();
-                    this.task.source=place.name;
+                    this.task.toLattitude= place.geometry.location.lat().toString();
+                    this.task.toLongitude=place.geometry.location.lng().toString();
+                    this.task.destination=place.name;
+
+                    this.calculateDistance();
+
                 });
             });
         });
