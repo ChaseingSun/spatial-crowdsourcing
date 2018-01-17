@@ -1,0 +1,30 @@
+
+<div *ngIf="workerTaskAssignment">
+    <h2><span>Worker Task Assignment</span> {{workerTaskAssignment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Worker</span></dt>
+        <dd>
+            <span>{{workerTaskAssignment.worker}}</span>
+        </dd>
+        <dt><span>Task</span></dt>
+        <dd>
+            <span>{{workerTaskAssignment.task}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'worker-task-assignment/'+ workerTaskAssignment.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

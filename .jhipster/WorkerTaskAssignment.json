@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "worker",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "task",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180117043541",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "worker_task_assignment",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
